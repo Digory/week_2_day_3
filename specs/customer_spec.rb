@@ -23,4 +23,9 @@ class TestCustomer < MiniTest::Test
     assert_equal(100.0, result)
   end
 
+  def test_get_drunkeness_level
+    result = @customer1.drunkeness_level
+    assert_equal(0, result)
+  end
+
 end
