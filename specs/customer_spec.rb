@@ -49,8 +49,8 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_buy_drink__too_poor
-
-    result = @customer1.buy_d
+    result = @customer2.buy_drink(@pub, @drink)
+    assert_equal(false, result)
   end
 
 end
