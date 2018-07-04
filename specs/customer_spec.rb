@@ -13,4 +13,9 @@ class TestCustomer < MiniTest::Test
     assert_equal("Gemma", result)
   end
 
+  def test_get_age
+    result = @customer1.age
+    assert_equal(25, result)
+  end
+
 end
