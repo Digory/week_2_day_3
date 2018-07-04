@@ -25,7 +25,18 @@ class Customer
   end
 
   def buy_food(pub, food)
+    return false if ((@wallet - food.price) < 0)
 
+    if pub.sell_food(food)
+      @wallet -= food.price
+      if @drunkeness_level + food.alcohol_level < 0
+        @drunkeness_level = 0
+        return true
+      else
+        @drunkeness_level += food.alcohol_level
+        return true
+      end
+    end
   end
 
 end
