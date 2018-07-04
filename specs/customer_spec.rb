@@ -25,22 +25,26 @@ class TestCustomer < MiniTest::Test
     assert_equal(100.0, result)
   end
 
-  def test_get_drunkeness_level
-    result = @customer1.drunkeness_level
-    assert_equal(0, result)
-  end
+  # def test_get_drunkeness_level
+  #   result = @customer1.drunkeness_level
+  #   assert_equal(0, result)
+  # end
+  #
+  # def test_buy_drink__wallet_decreased
+  #   @customer1.buy_drink(@pub, @drink)
+  #   result = @customer1.wallet
+  #   assert_equal(96.0, result)
+  # end
+  # 
+  # def test_buy_drink__drunkeness_increased
+  #   @customer1.buy_drink(@pub, @drink)
+  #   result = @customer1.drunkeness_level
+  #   assert_equal(0.4, result)
+  # end
 
-  def test_buy_drink__wallet_decreased
-    @customer1.buy_drink(@pub, @drink)
-    result = @customer1.wallet
-    assert_equal(96.0, result)
+  def test_buy_drink__too_drunk
+    result = @customer1.buy_drink(@pub, @drink)
+    assert_equal(false, result)
   end
-
-  def test_buy_drink__drunkeness_increased
-    @customer1.buy_drink(@pub, @drink)
-    result = @customer1.drunkeness_level
-    assert_equal(0.4, result)
-  end
-
 
 end

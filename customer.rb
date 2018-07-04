@@ -9,13 +9,16 @@ class Customer
     @name = name
     @age = age
     @wallet = wallet
-    @drunkeness_level = 0
+    @drunkeness_level = 2
   end
 
   def buy_drink(pub, drink)
-    #pub.take_drink()
+    if pub.sell_drink(@age, drink, @drunkeness_level)
     @wallet -= drink.price
     @drunkeness_level += drink.alcohol_level
+    return true
+  end
+  return false
   end
 
 end
