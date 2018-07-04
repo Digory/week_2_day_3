@@ -18,4 +18,9 @@ class TestCustomer < MiniTest::Test
     assert_equal(25, result)
   end
 
+  def test_get_wallet
+    result = @customer1.wallet
+    assert_equal(100.0, result)
+  end
+
 end
