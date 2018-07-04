@@ -14,6 +14,11 @@ class TestPub < MiniTest::Test
     assert_equal("The dog and lemon", actual)
   end
 
+  def test_get_till
+    actual = @pub.till
+    assert_equal(1000.0, actual)
+  end
+
 
 
 
