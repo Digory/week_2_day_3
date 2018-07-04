@@ -13,6 +13,11 @@ class TestDrink < MiniTest::Test
     assert_equal("Beer", actual)
   end
 
+  def test_get_price
+    actual = @drink.price
+    assert_equal(3.50, actual)
+  end
+
 
 
 
