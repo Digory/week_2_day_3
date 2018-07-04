@@ -9,7 +9,7 @@ class Customer
     @name = name
     @age = age
     @wallet = wallet
-    @drunkeness_level = 2
+    @drunkeness_level = 0
   end
 
   def buy_drink(pub, drink)
