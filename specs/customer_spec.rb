@@ -6,6 +6,8 @@ class TestCustomer < MiniTest::Test
 
   def setup
     @customer1 = Customer.new("Gemma", 25, 100.0)
+    @pub = Pub.new("The dog and lemon")
+    @drink = Drink.new("Rum", 4.0, 0.40)
   end
 
   def test_get_name
@@ -27,5 +29,16 @@ class TestCustomer < MiniTest::Test
     result = @customer1.drunkeness_level
     assert_equal(0, result)
   end
+
+  def test_buy_drink__wallet_decreased
+    @customer1.buy_drink(@pub, @drink)
+    result = @customer1.wallet
+    assert_equal(96.0, result)
+  end
+
+  def test_buy_drink__drunkeness_increased
+
+  end
+
 
 end
