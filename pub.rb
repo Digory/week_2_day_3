@@ -1,4 +1,5 @@
 require_relative('drink.rb')
+require_relative('food.rb')
 
 class Pub
 
@@ -7,13 +8,20 @@ class Pub
   def initialize(name)
     @name = name
     @till = 1000.0
-    beer = Drink.new("Beer", 3.5, 0.04)
-    whisky = Drink.new("Whisky", 4.0, 0.4)
-    wine = Drink.new("Wine", 5.0, 0.14)
-    rum = Drink.new("Rum", 4.0, 0.40)
-    lemonade = Drink.new("Lemonade", 2.0, 0.00)
-    @drinks = [beer, whisky, wine, rum, lemonade]
+    @drinks = drinks_stock()
+
   end
+
+  def drinks_stock
+    drinks_array = [
+      {name: "beer", stock: 50, price: 3.5, alcohol_level: 0.04},
+      {name: "whisky", stock: 50, price: 4.0, alcohol_level: 0.40},
+      {name: "wine", stock: 50, price: 5.0, alcohol_level: 0.14},
+      {name: "rum", stock: 50, price: 4.0, alcohol_level: 0.40},
+      {name: "lemonade", stock: 50, price: 2.0, alcohol_level: 0.00}
+    ]
+  end
+
 
   def sell_drink(age, drink, drunkeness_level)
 
@@ -35,8 +43,13 @@ class Pub
   end
 
   def drink_in_stock?(drink)
+
     for each_drink in @drinks
-      return true if each_drink.name == drink.name
+      if each_drink[:name] == drink.name
+        if each_drink[:stock] > 0
+          return true
+        end
+      end
     end
     return false
   end
