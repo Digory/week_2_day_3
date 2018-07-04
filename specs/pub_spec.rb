@@ -19,6 +19,11 @@ class TestPub < MiniTest::Test
     assert_equal(1000.0, actual)
   end
 
+  def test_get_drinks
+    actual = @pub.drinks.length()
+    assert_equal(3, actual)
+  end
+
 
 
 
